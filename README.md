@@ -30,10 +30,10 @@
 
 | Column     | Type        | Options                             |
 |:-----------|:------------|:------------------------------------|
-| body       | text        | index:true                          |
+| body       | string      | index:true                          |
 | image      | string      |                                     |
-| group_id   | integer     | null:false, unique:true, index:true |
-| user_id    | integer     | null:false, unique:true, index:true |
+| group_id   | references  | null:false, index:true              |
+| user_id    | references  | null:false, index:true              |
 
 ### Association
 * belongs_to :group
@@ -44,8 +44,8 @@
 
 | Column     | Type        | Options                             |
 |:-----------|:------------|:------------------------------------|
-| group_id   | integer     | null:false, unique:true, index:true |
-| user_id    | integer     | null:false, unique:true, index:true |
+| group_id   | references  | null:false, index:true              |
+| user_id    | references  | null:false, index:true              |
 
 ### Association
 * belongs_to :group
