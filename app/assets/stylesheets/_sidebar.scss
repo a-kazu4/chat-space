@@ -11,11 +11,12 @@ $white: #FFFFFF;
 .sidebar{
   width:300px;
   height:calc(100vh - 20px);
+  float:left;
   .user{
     padding:0 20px;
     background-color: #253141;
-    height:70px;
-    line-height: 70px;
+    height:110px;
+    line-height: 110px;
 
     &__name{
       @include clearfix();
@@ -38,7 +39,7 @@ $white: #FFFFFF;
   .groups{
     padding:0 20px;
     background-color: #2f3e51;
-    height:calc(100% - 70px);
+    height:calc(100% - 110px);
     &__group{
       padding:20px 0;
     }

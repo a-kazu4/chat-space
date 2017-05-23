@@ -1,0 +1,27 @@
+%div{class: "chat-content"}
+  %div{class: "group"}
+    %div{class: "group-left"}
+      %div{class: "group-left__name"} sampleグループ
+      %div{class: "group-left__member"} Member : ceo
+    %div{class: "group-right"}
+      %a{class: "group-right__edit-button", href: "/messages"} Edit
+  %div{class: "chats"}
+    %div{class: "chat"}
+      %div{class: "chat-top"}
+        %p{class: "chat-top__name"} ryosukemaehira
+        %p{class: "chat-top__time"} 2016/10/02 06:27:07
+      %div{class: "chat-bottom"}
+        %p{class: "chat-bottom__message"}初めまして。
+    %div{class: "chat"}
+      %div{class: "chat-top"}
+        %p{class: "chat-top__name"} ryosukemaehira
+        %p{class: "chat-top__time"} 2016/10/13 05:35:07
+      %div{class: "chat-bottom"}
+        %p{class: "chat-bottom__message"}よろしくお願いします。
+  %div{class: "submit"}
+    %form
+      %textarea{name: "chat", rows: "1", cols: "40", placeholder:"type a message"}
+      %label{class: "submit__image"}
+        %input{class: "file-upload", type:"file"}
+        %i{class: "fa fa-image"}
+      %input{class: "submit__send", type:"submit", value: "Send"}
