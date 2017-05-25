@@ -1,3 +1,35 @@
-%div{class: "flash"} チャットグループが作成されました。
-= render partial:"sidebar"
-= render partial:"chat-content"
+- flash.each do |key, value|
+  .flash
+    = value
+= render partial: "groups/sidebar"
+.chat
+
+  .chat-header
+    .chat-header__left
+      .chat-header__left__name sampleグループ
+      .chat-header__left__member Member : ceo
+    .chat-header__right
+      %a.chat-header__right__edit-button{href: "/messages"} Edit
+
+  .chat-body
+    .chat-body__chat
+      .chat-body__chat__top
+        %p.chat-body__chat__top__name ryosukemaehira
+        %p.chat-body__chat__top__time 2016/10/02 06:27:07
+      .chat-body__chat__bottom
+        %p.chat-body__chat__bottom__message 初めまして。
+    .chat-body__chat
+      .chat-body__chat__top
+        %p.chat-body__chat__top__name ryosukemaehira
+        %p.chat-body__chat__top__time 2016/10/04 12:24:12
+      .chat-body__chat__bottom
+        %p.chat-body__chat__bottom__message よろしく。
+
+  .chat-footer
+    %form
+      %p.chat-footer__input
+        %textarea{name: "chat", rows: "1", placeholder:"type a message"}
+        %label.chat-footer__input__image
+          %input.file-upload{type:"file"}
+          %i.fa.fa-image
+      %input.chat-footer__send{type:"submit", value: "Send"}
