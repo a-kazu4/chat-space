@@ -37,7 +37,7 @@
     padding-top: 46px;
     height: calc(100% - 247px);
     background-color: #FAFAFA;
-    &__chat{
+    &__chat {
       padding-bottom: 40px;
       &__top {
         @include clearfix();
@@ -67,7 +67,7 @@
     height: 90px;
     padding: 0 40px;
     background-color: #ddd;
-    &__input{
+    &__input {
       position: relative;
       margin-right: 15px;
       textarea {
