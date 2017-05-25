@@ -3,7 +3,7 @@
   float: left;
   height: 100%;
 
-  .chat-header {
+  &__header {
     border-bottom: solid 1px #eeeeee;
     padding: 0 40px;
     height: 110px;
@@ -32,7 +32,7 @@
       }
     }
   }
-  .chat-body {
+  &__body {
     padding: 0 40px;
     padding-top: 46px;
     height: calc(100% - 247px);
@@ -50,8 +50,7 @@
         &__time {
           @include light-color();
           float: left;
-          padding-left: 10px;
-          padding-top: 3px;
+          padding: 3px 0 0 10px;
           margin-bottom: 10px;
         }
       }
@@ -63,7 +62,7 @@
       }
     }
   }
-  .chat-footer {
+  &__footer {
     height: 90px;
     padding: 0 40px;
     background-color: #ddd;

@@ -1,35 +1,35 @@
 - flash.each do |key, value|
   .flash
     = value
-= render partial: "groups/sidebar"
+= render partial: 'groups/sidebar'
 .chat
 
-  .chat-header
-    .chat-header__left
-      .chat-header__left__name sampleグループ
-      .chat-header__left__member Member : ceo
-    .chat-header__right
-      %a.chat-header__right__edit-button{href: "/messages"} Edit
+  .chat__header
+    .chat__header__left
+      .chat__header__left__name sampleグループ
+      .chat__header__left__member Member : ceo
+    .chat__header__right
+      %a.chat__header__right__edit-button{href: '/messages'} Edit
 
-  .chat-body
-    .chat-body__chat
-      .chat-body__chat__top
-        %p.chat-body__chat__top__name ryosukemaehira
-        %p.chat-body__chat__top__time 2016/10/02 06:27:07
-      .chat-body__chat__bottom
-        %p.chat-body__chat__bottom__message 初めまして。
-    .chat-body__chat
-      .chat-body__chat__top
-        %p.chat-body__chat__top__name ryosukemaehira
-        %p.chat-body__chat__top__time 2016/10/04 12:24:12
-      .chat-body__chat__bottom
-        %p.chat-body__chat__bottom__message よろしく。
+  .chat__body
+    .chat__body__chat
+      .chat__body__chat__top
+        %p.chat__body__chat__top__name ryosukemaehira
+        %p.chat__body__chat__top__time 2016/10/02 06:27:07
+      .chat__body__chat__bottom
+        %p.chat__body__chat__bottom__message 初めまして。
+    .chat__body__chat
+      .chat__body__chat__top
+        %p.chat__body__chat__top__name ryosukemaehira
+        %p.chat__body__chat__top__time 2016/10/04 12:24:12
+      .chat__body__chat__bottom
+        %p.chat__body__chat__bottom__message よろしく。
 
-  .chat-footer
+  .chat__footer
     %form
-      %p.chat-footer__input
-        %textarea{name: "chat", rows: "1", placeholder:"type a message"}
-        %label.chat-footer__input__image
-          %input.file-upload{type:"file"}
+      %p.chat__footer__input
+        %textarea{name: 'chat', rows: '1', placeholder:'type a message'}
+        %label.chat__footer__input__image
+          %input.file-upload{type:'file'}
           %i.fa.fa-image
-      %input.chat-footer__send{type:"submit", value: "Send"}
+      %input.chat__footer__send{type:'submit', value: 'Send'}
