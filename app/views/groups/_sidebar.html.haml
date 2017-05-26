@@ -2,9 +2,9 @@
   .user
     .user__name seo
     .user__icons
-      %a.user__icons__icon{href: "/messages"}
+      = link_to root_path, class: 'user__icons__icon' do
         %i.fa.fa-pencil-square-o
-      %a.user__icons__icon{href: "/messages"}
+      = link_to root_path, class: 'user__icons__icon' do
         %i.fa.fa-cog
   .groups
     .group

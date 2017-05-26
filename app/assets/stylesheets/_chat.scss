@@ -2,15 +2,14 @@
   width: calc(100vw - 300px);
   float: left;
   height: 100%;
-
   &__header {
-    border-bottom: solid 1px #eeeeee;
-    padding: 0 40px;
+    @include padding();
+    border-bottom: solid 1px $border;
     height: 110px;
     &__left {
       float: left;
       &__name {
-        color: #333333;
+        color: $group-name;
         font-size: 20px;
         padding: 35px 0 15px;
       }
@@ -33,10 +32,10 @@
     }
   }
   &__body {
-    padding: 0 40px;
+    @include padding();
     padding-top: 46px;
     height: calc(100% - 247px);
-    background-color: #FAFAFA;
+    background-color: $body-gray;
     &__chat {
       padding-bottom: 40px;
       &__top {
@@ -63,9 +62,9 @@
     }
   }
   &__footer {
+    @include padding();
     height: 90px;
-    padding: 0 40px;
-    background-color: #ddd;
+    background-color: $footer-gray;
     &__input {
       position: relative;
       margin-right: 15px;

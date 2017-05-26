@@ -1,8 +1,7 @@
 @mixin light-color() {
   font-size: 12px;
-  color: #999999;
+  color: $gray;
 }
-
 @mixin clearfix() {
   &:after {
     content: '';
@@ -10,11 +9,13 @@
     clear: both;
   }
 }
-
 @mixin forms() {
   height: 50px;
   margin: 20px 0;
   border: none;
   float: left;
   line-height: 50px;
+}
+@mixin padding() {
+  padding: 0 40px;
 }

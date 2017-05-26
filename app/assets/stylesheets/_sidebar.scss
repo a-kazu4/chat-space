@@ -4,10 +4,9 @@
   float: left;
   .user {
     padding: 0 20px;
-    background-color: #253141;
+    background-color: $sidebar-top;
     height: 110px;
     line-height: 110px;
-
     &__name {
       @include clearfix();
       color: $white;
@@ -15,7 +14,6 @@
       font-size: 16px;
       font-weight: bold;
     }
-
     &__icons {
       float: right;
       &__icon {
@@ -24,22 +22,18 @@
         padding-left: 10px;
       }
     }
-
-
   }
   .groups {
     padding: 0 20px;
-    background-color: #2f3e51;
+    background-color: $sidebar-bottom;
     height: calc(100vh - 110px);
     .group {
       padding: 20px 0;
-
       &__name {
         color: $white;
         font-size: 15px;
         padding-bottom: 5px;
       }
-
       &__message {
         color: $white;
         font-size: 11px;

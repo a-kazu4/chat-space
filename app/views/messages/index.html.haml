@@ -1,16 +1,12 @@
-- flash.each do |key, value|
-  .flash
-    = value
+= render partial: 'flash'
 = render partial: 'groups/sidebar'
 .chat
-
   .chat__header
     .chat__header__left
       .chat__header__left__name sampleグループ
       .chat__header__left__member Member : ceo
     .chat__header__right
-      %a.chat__header__right__edit-button{href: '/messages'} Edit
-
+      = link_to 'Edit', root_path, class: 'chat__header__right__edit-button'
   .chat__body
     .chat__body__chat
       .chat__body__chat__top
@@ -24,12 +20,11 @@
         %p.chat__body__chat__top__time 2016/10/04 12:24:12
       .chat__body__chat__bottom
         %p.chat__body__chat__bottom__message よろしく。
-
   .chat__footer
     %form
       %p.chat__footer__input
-        %textarea{name: 'chat', rows: '1', placeholder:'type a message'}
+        %textarea{ name: 'chat', rows: '1', placeholder:'type a message' }
         %label.chat__footer__input__image
-          %input.file-upload{type:'file'}
+          %input.file-upload{ type:'file' }
           %i.fa.fa-image
-      %input.chat__footer__send{type:'submit', value: 'Send'}
+      %input.chat__footer__send{ type:'submit', value: 'Send' }
