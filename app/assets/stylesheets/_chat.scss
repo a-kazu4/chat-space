@@ -3,7 +3,7 @@
   float: left;
   height: 100%;
   &__header {
-    @include padding();
+    @include chat-width();
     border-bottom: solid 1px $border;
     height: 110px;
     &__left {
@@ -32,7 +32,7 @@
     }
   }
   &__body {
-    @include padding();
+    @include chat-width();
     padding-top: 46px;
     height: calc(100% - 247px);
     background-color: $body-gray;
@@ -62,7 +62,7 @@
     }
   }
   &__footer {
-    @include padding();
+    @include chat-width();
     height: 90px;
     background-color: $footer-gray;
     &__input {
