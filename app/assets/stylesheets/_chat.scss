@@ -1,0 +1,97 @@
+.chat {
+  width: calc(100vw - 300px);
+  float: left;
+  height: 100%;
+  &__header {
+    @include chat-width();
+    border-bottom: solid 1px $border;
+    height: 110px;
+    &__left {
+      float: left;
+      &__name {
+        color: $group-name;
+        font-size: 20px;
+        padding: 35px 0 15px;
+      }
+      &__member {
+        @include light-color();
+      }
+    }
+    &__right {
+      float: right;
+      border: solid 2px $lightblue;
+      margin-top: 28px;
+      height: 40px;
+      line-height: 40px;
+      &__edit-button {
+        text-decoration: none;
+        padding: 0 20px;
+        color: $lightblue;
+        display: block;
+      }
+    }
+  }
+  &__body {
+    @include chat-width();
+    padding-top: 46px;
+    height: calc(100% - 247px);
+    background-color: $body-gray;
+    &__chat {
+      padding-bottom: 40px;
+      &__top {
+        @include clearfix();
+        &__name {
+          float: left;
+          font-size: 16px;
+          color: $textcolor;
+          font-weight: bold;
+        }
+        &__time {
+          @include light-color();
+          float: left;
+          padding: 3px 0 0 10px;
+          margin-bottom: 10px;
+        }
+      }
+      &__bottom {
+        &__message {
+          font-size: 14px;
+          color: $textcolor;
+        }
+      }
+    }
+  }
+  &__footer {
+    @include chat-width();
+    height: 90px;
+    background-color: $footer-gray;
+    &__input {
+      position: relative;
+      margin-right: 15px;
+      textarea {
+        @include forms();
+        padding: 0 10px;
+        resize: none;
+        font-size: 16px;
+        width: calc(100vw - 515px);
+        color: $textcolor;
+      }
+      &__image {
+        @include forms();
+        position: absolute;
+        top: 0;
+        right: 110px;
+        .file-upload {
+          display: none;
+        }
+      }
+    }
+    &__send {
+      @include forms();
+      width: 100px;
+      float: right;
+      background-color: $lightblue;
+      color: $white;
+    }
+  }
+}
