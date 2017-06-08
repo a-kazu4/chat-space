@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   def update
     current_user.update(update_params)
     if current_user.update(update_params)
-      redirect_to root_path, notice: 'アカウントが更新されました'
+      redirect_to root_path, notice: 'アカウント情報が変更されました'
+    else
+      redirect_to edit_user_path(current_user), alert: 'アカウント情報が更新されませんでした。'
     end
   end
 
