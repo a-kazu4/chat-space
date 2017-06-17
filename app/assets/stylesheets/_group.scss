@@ -41,11 +41,7 @@
 
   &__field {
     margin-top: 30px;
-    &:after {
-      content: '';
-      clear: both;
-      display: block;
-    }
+    @include clearfix();
 
     &--left {
       float: left;
