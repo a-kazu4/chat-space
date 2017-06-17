@@ -1,10 +1,18 @@
 .chat-group-form
   %h1 チャットグループ編集
-  = form_for @group, html: { id: 'edit_chat_group_22', class: 'edit_chat_group' } do |f|
+  - if @group.errors.any?
+    .chat-group-form__errors
+      %h2
+        = @group.errors.count
+        件のエラーが発生しました。
+      %ul
+        - @group.errors.full_messages.each do |msg|
+          %li= msg
+  = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label
-        = f.label :name, 'グループ名'
+          = f.label :name, 'グループ名'
       .chat-group-form__field--right
         #chat_group_name.chat-group-form__input
           = f.text_field :name, placeholder: 'グループ名を入力してください'
