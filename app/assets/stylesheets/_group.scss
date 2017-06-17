@@ -87,11 +87,7 @@
     line-height: 50px;
     font-size: 14px;
     border-bottom: 1px solid $light-gray;
-    &:after {
-      content: '';
-      clear: both;
-      display: block;
-    }
+    @include clearfix();
 
     &__name {
       float: left;
