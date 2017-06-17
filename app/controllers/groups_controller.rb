@@ -26,8 +26,12 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    @group.update(group_params)
-    redirect_to root_url, notice: 'グループが更新されました。'
+    if @group.update(group_params)
+      redirect_to root_url, notice: 'グループが更新されました。'
+    else
+      @users = User.all
+      render :edit
+    end
   end
 
   private
