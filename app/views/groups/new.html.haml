@@ -1,12 +1,14 @@
 .chat-group-form
   %h1 新規チャットグループ
+  - if @group.errors.any?
+    #error_explanation.alert.alert-danger
+      %h2
+        = @group.errors.count
+        件のエラーが発生しました。
+      %ul
+        - @group.errors.full_messages.each do |msg|
+          %li= msg
   = form_for @group, html: { id: 'new_chat_group', class: 'new_chat_group' } do |f|
-    - unless @group.valid?
-      #error_explanation.alert.alert-danger
-        %ul
-          - @group.errors.full_messages.each do |message|
-            %li
-              = message
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label

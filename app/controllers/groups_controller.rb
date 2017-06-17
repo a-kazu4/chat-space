@@ -13,7 +13,11 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       redirect_to root_url, notice: 'グループが作成されました。'
+    else
+      @users = User.all
+      render :new
     end
+
   end
 
   def edit
@@ -22,6 +26,9 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to root_url, notice: 'グループが更新されました。'
   end
 
   private
