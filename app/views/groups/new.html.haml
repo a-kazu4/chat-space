@@ -1,13 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  - if @group.errors.any?
-    .chat-group-form__errors
-      %h2
-        = @group.errors.count
-        件のエラーが発生しました。
-      %ul
-        - @group.errors.full_messages.each do |msg|
-          %li= msg
+  = render partial: 'shared/error-messages'
   = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
