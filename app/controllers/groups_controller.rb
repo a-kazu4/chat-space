@@ -17,7 +17,6 @@ class GroupsController < ApplicationController
       @users = User.all
       render :new
     end
-
   end
 
   def edit
