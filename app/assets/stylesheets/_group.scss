@@ -56,9 +56,6 @@
       width: 70%;
     }
 
-    .chat-group-form
-
-    .chat-group-form
     .check-boxes {
       @include height50();
     }
@@ -98,11 +95,11 @@
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
+      &--add {
         color: $lightblue;
       }
 
-      &.chat-group-user__btn--remove {
+      &--remove {
         color: $error-red;
       }
     }
