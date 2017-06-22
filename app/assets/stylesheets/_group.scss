@@ -57,10 +57,10 @@
     }
 
     .check-boxes {
-      @include height50();
+      @include group-form-height();
     }
     #group_name {
-      @include height50();
+      @include group-form-height();
       width: 96%;
       padding-left: 20px;
     }
