@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.created_at
+    @groups = Group.updated_at
   end
 
   def new
