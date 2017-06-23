@@ -1,5 +1,6 @@
 .account-page {
   &__inner {
+    @include clearfix();
     width: 980px;
     margin: 60px auto;
     padding: 60px;
@@ -10,11 +11,6 @@
     &--left, &--right {
       float: left;
       width: 50%;
-    }
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
     }
   }
 
