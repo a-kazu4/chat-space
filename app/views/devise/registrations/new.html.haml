@@ -3,7 +3,7 @@
     .account-page__inner--left.account-page__header
       %h2 Create Account
       %h5 新規アカウントの作成
-      = render "devise/shared/links"
+      = render 'devise/shared/links'
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
@@ -22,11 +22,11 @@
             = f.label :password
             %i (英数字8文字以上)
           .field-input
-            = f.password_field :password, autocomplete: "off"
+            = f.password_field :password, autocomplete: 'off'
         .field
           .field-label
             = f.label :password_confirmation
           .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
+            = f.password_field :password_confirmation, autocomplete: 'off'
         .actions
-          = f.submit "Create Account", class: 'btn'
+          = f.submit 'Create Account', class: 'btn'
