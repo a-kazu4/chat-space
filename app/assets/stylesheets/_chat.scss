@@ -64,7 +64,7 @@
   &__footer {
     @include chat-width();
     height: 90px;
-    background-color: $footer-gray;
+    background-color: $light-gray;
     &__input {
       position: relative;
       margin-right: 15px;

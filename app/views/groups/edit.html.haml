@@ -1,0 +1,22 @@
+.chat-group-form
+  %h1 チャットグループ編集
+  = render partial: 'shared/error-messages'
+  = form_for @group do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        .chat-group-form__label
+          = f.label :name, 'グループ名'
+      .chat-group-form__field--right
+        #chat_group_name.chat-group-form__input
+          = f.text_field :name, placeholder: 'グループ名を入力してください'
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        .chat-group-form__label
+          = f.label :member, 'チャットメンバー'
+      .chat-group-form__field--right
+        = f.collection_check_boxes(:user_ids, @users, :id, :name) do |b|
+          = b.label { b.check_box + b.text }
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit 'Update', class: 'chat-group-form__action-btn'
