@@ -11,17 +11,7 @@
     .chat__header__right
       = link_to 'Edit', edit_group_url(@group), class: 'chat__header__right__edit-button'
   .chat__body
-    .chat__body__chat
-      - @messages.each do |msg|
-        .chat__body__chat__top
-          .chat__body__chat__top__name
-            = msg.user.name
-          .chat__body__chat__top__time
-            = simple_time(msg.created_at)
-        .chat__body__chat__bottom
-          .chat__body__chat__bottom__message
-            = msg.body
-            = image_tag msg.image.to_s
+    = render partial: 'messages/message', collection: @messages
   .chat__footer
     = form_for [@group, @message] do |f|
       .chat__footer__input
