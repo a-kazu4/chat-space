@@ -1,30 +1,32 @@
-.flash チャットグループが作成されました。
 = render partial: 'groups/sidebar'
 .chat
   .chat__header
     .chat__header__left
-      .chat__header__left__name sampleグループ
-      .chat__header__left__member Member : ceo
+      .chat__header__left__name
+        = @group.name
+      .chat__header__left__member
+        Member :
+        - @users.each do |user|
+          = user.name
     .chat__header__right
-      = link_to 'Edit', root_path, class: 'chat__header__right__edit-button'
+      = link_to 'Edit', edit_group_url(@group), class: 'chat__header__right__edit-button'
   .chat__body
     .chat__body__chat
-      .chat__body__chat__top
-        %p.chat__body__chat__top__name ryosukemaehira
-        %p.chat__body__chat__top__time 2016/10/02 06:27:07
-      .chat__body__chat__bottom
-        %p.chat__body__chat__bottom__message 初めまして。
-    .chat__body__chat
-      .chat__body__chat__top
-        %p.chat__body__chat__top__name ryosukemaehira
-        %p.chat__body__chat__top__time 2016/10/04 12:24:12
-      .chat__body__chat__bottom
-        %p.chat__body__chat__bottom__message よろしく。
+      - @messages.each do |msg|
+        .chat__body__chat__top
+          .chat__body__chat__top__name
+            = msg.user.name
+          .chat__body__chat__top__time
+            = simple_time(msg.created_at)
+        .chat__body__chat__bottom
+          .chat__body__chat__bottom__message
+            = msg.body
+            = image_tag msg.image.to_s
   .chat__footer
-    %form
-      %p.chat__footer__input
-        %textarea{ name: 'chat', rows: '1', placeholder:'type a message' }
-        %label.chat__footer__input__image
-          %input.file-upload{ type:'file' }
+    = form_for [@group, @message] do |f|
+      .chat__footer__input
+        = f.text_field :body, rows: '1', placeholder:'type a message', class: 'chat__footer__input__body'
+        = f.label :image, class: 'chat__footer__input__image' do
+          = f.file_field :image, class: 'file-upload'
           %i.fa.fa-image
-      %input.chat__footer__send{ type:'submit', value: 'Send' }
+      = f.submit 'Send', class: 'chat__footer__send'
