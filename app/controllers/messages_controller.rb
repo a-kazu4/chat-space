@@ -9,12 +9,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    @group = Group.find(params[:group_id])
-    if @message.save
-      redirect_to group_messages_url(@group)
+    message = Message.new(message_params)
+    group = Group.find(params[:group_id])
+    if message.save
+      redirect_to group_messages_url(group)
     else
-      redirect_to group_messages_url(@group), alert: 'メッセージを入力してください。'
+      redirect_to group_messages_url(group), alert: 'メッセージを入力してください。'
     end
   end
 
