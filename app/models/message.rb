@@ -6,6 +6,7 @@ class Message < ApplicationRecord
   validates :body_or_image, presence: true
 
   private
+
   def body_or_image
     body.presence or image.presence
   end
