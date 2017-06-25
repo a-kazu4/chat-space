@@ -4,6 +4,9 @@
       = group.name
     .group__message
       - if group.messages.empty?
-        まだメッセージがありません。
+        まだメッセージはありません。
       - else
-        = group.messages.order('created_at DESC').first.try(:body)
+        - if group.messages.last.body.empty?
+          画像が投稿されています。
+        - else
+          = group.messages.last.body
