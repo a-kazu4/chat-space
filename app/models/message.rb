@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :group
   belongs_to :user
-  scope :updated_at, -> { includes(:messages).order('updated_at DESC') }
+  scope :order_by_updated_at, -> { includes(:messages).order('updated_at DESC') }
   mount_uploader :image, MessageUploader
   validates :body_or_image, presence: true
 
