@@ -10,18 +10,18 @@ class MessagesController < ApplicationController
 
   def create
     create_valiables
-    if message.save
-      redirect_to group_messages_url(group)
+    if @message.save
+      redirect_to group_messages_url(@group)
     else
-      redirect_to group_messages_url(group), alert: 'メッセージを入力してください。'
+      redirect_to group_messages_url(@group), alert: 'メッセージを入力してください。'
     end
   end
 
   private
 
   def create_valiables
-    message = current_user.messages.new(message_params)
-    group = Group.find(params[:group_id])
+    @message = current_user.messages.new(message_params)
+    @group = Group.find(params[:group_id])
   end
 
   def message_params
