@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
 
   def index
-    @groups = Group.order_by_updated_at
     @group = Group.find(params[:group_id])
-    @users = @group.users
     @message = Message.new
+    @users = @group.users
+    @groups = Group.newest
     @messages = @group.messages.includes(:user)
   end
 

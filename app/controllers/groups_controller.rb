@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.order_by_updated_at
+    @groups = Group.newest
   end
 
   def new
