@@ -9,8 +9,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = current_user.messages.new(message_params)
-    group = Group.find(params[:group_id])
+    create_valiables
     if message.save
       redirect_to group_messages_url(group)
     else
@@ -19,6 +18,11 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def create_valiables
+    message = current_user.messages.new(message_params)
+    group = Group.find(params[:group_id])
+  end
 
   def message_params
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
