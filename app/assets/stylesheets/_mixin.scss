@@ -2,6 +2,7 @@
   font-size: 12px;
   color: $gray;
 }
+
 @mixin clearfix() {
   &:after {
     content: '';
@@ -9,6 +10,7 @@
     clear: both;
   }
 }
+
 @mixin forms() {
   height: 50px;
   margin: 20px 0;
@@ -16,13 +18,16 @@
   float: left;
   line-height: 50px;
 }
+
 @mixin chat-width() {
   padding: 0 40px;
 }
+
 @mixin group-form-height {
   line-height: 50px;
   height: 50px;
 }
+
 @mixin text_decoration {
   &:visited, &:hover, &:active, &:link {
     text-decoration: none;
