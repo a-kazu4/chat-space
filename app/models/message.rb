@@ -2,11 +2,11 @@ class Message < ApplicationRecord
   belongs_to :group
   belongs_to :user
 
+  include ScopeNewest
+
   mount_uploader :image, MessageUploader
 
   validates :body_or_image, presence: true
-
-  include ScopeNewest
 
   private
 
