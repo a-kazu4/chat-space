@@ -3,16 +3,12 @@ class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @message = Message.new
-    @users = @group.users
-    @groups = Group.newest
-    @messages = @group.messages.includes(:user)
+    index_valiables
   end
 
   def create
     create_valiables
-    @users = @group.users
-    @groups = Group.newest
-    @messages = @group.messages.includes(:user)
+    index_valiables
     if @message.save
       redirect_to group_messages_url(@group)
     else
@@ -26,6 +22,12 @@ class MessagesController < ApplicationController
   def create_valiables
     @message = current_user.messages.new(message_params)
     @group = Group.find(params[:group_id])
+  end
+
+  def index_valiables
+    @users = @group.users
+    @groups = Group.newest
+    @messages = @group.messages.includes(:user)
   end
 
   def message_params
