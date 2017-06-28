@@ -3,10 +3,9 @@
     .group__name
       = group.name
     .group__message
-      - if group.try(:messages)
-        - if group.messages.last.try(:body)
-          = group.messages.last.body
-          - if group.messages.last.try(:image)
-            画像が投稿されています。
-        - else
-          メッセージがありません。
+      - if group.messages.last.try(:body)
+        = group.messages.last.try(:body)
+        - if group.messages.last.try(:image)
+          画像が投稿されています。
+      - else
+        メッセージがありません。
