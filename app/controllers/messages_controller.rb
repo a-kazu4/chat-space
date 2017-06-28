@@ -10,10 +10,13 @@ class MessagesController < ApplicationController
 
   def create
     create_valiables
+    @users = @group.users
+    @groups = Group.newest
+    @messages = @group.messages.includes(:user)
     if @message.save
       redirect_to group_messages_url(@group)
     else
-      redirect_to group_messages_url(@group), alert: 'メッセージを入力してください。'
+      render :index, alert: 'メッセージを入力してください。'
     end
   end
 
