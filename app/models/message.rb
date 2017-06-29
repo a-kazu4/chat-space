@@ -2,7 +2,7 @@ class Message < ApplicationRecord
   belongs_to :group
   belongs_to :user
 
-  include ScopeNewest
+  include CommonModule
 
   mount_uploader :image, MessageUploader
 

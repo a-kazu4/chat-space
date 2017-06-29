@@ -3,7 +3,7 @@ class Group < ApplicationRecord
   has_many :members
   has_many :messages
 
-  include ScopeNewest
+  include CommonModule
 
   accepts_nested_attributes_for :members
 
