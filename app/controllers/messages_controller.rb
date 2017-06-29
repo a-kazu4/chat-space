@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  before_action :create_valiables, :index_valiables, except: :index
+
   def index
     @group = Group.find(params[:group_id])
     @message = Message.new
@@ -7,8 +9,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    create_valiables
-    index_valiables
     if @message.save
       redirect_to group_messages_url(@group)
     else
