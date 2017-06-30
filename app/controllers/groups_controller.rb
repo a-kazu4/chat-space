@@ -1,12 +1,14 @@
 class GroupsController < ApplicationController
 
+  before_action :set_group, only: [:edit, :update]
+  before_action :set_users, only: [:new, :create, :edit, :update]
+
   def index
     @groups = Group.newest
   end
 
   def new
     @group = Group.new
-    @users = User.all
   end
 
   def create
@@ -14,27 +16,30 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_url, notice: 'グループが作成されました。'
     else
-      @users = User.all
       render :new
     end
   end
 
   def edit
-    @group = Group.find(params[:id])
-    @users = User.all
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to root_url, notice: 'グループが更新されました。'
     else
-      @users = User.all
       render :edit
     end
   end
 
   private
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  def set_users
+    @users = User.all
+  end
 
   def group_params
     params.require(:group).permit(:name, { user_ids:[] })

@@ -1,14 +1,13 @@
 class MessagesController < ApplicationController
 
-  before_action :create_valiables, :index_valiables, except: :index
+  before_action :common_valiables, only: [:index, :create]
 
   def index
-    @group = Group.find(params[:group_id])
     @message = Message.new
-    index_valiables
   end
 
   def create
+    @message = current_user.messages.new(message_params)
     if @message.save
       redirect_to group_messages_url(@group)
     else
@@ -19,14 +18,10 @@ class MessagesController < ApplicationController
 
   private
 
-  def create_valiables
-    @message = current_user.messages.new(message_params)
+  def common_valiables
     @group = Group.find(params[:group_id])
-  end
-
-  def index_valiables
-    @users = @group.users
     @groups = Group.newest
+    @users = @group.users
     @messages = @group.messages.includes(:user)
   end
 
