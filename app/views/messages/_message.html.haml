@@ -1,0 +1,10 @@
+.chat__body__chat
+  .chat__body__chat__top
+    .chat__body__chat__top__name
+      = message.user.name
+    .chat__body__chat__top__time
+      = simple_time(message.created_at)
+  .chat__body__chat__bottom
+    .chat__body__chat__bottom__message
+      = message.try(:body)
+      = image_tag message.image.url(:thumb) if message.image?

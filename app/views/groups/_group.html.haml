@@ -1,4 +1,11 @@
 .group
-  .group__name
-    = group.name
-  .group__message まだメッセージはありません。
+  = link_to group_messages_path(group), class: 'group__box' do
+    .group__name
+      = group.name
+    .group__message
+      - if group.messages.last.try(:body)
+        = group.messages.last.try(:body)
+        - if group.messages.last.try(:image)
+          画像が投稿されています。
+      - else
+        メッセージがありません。
