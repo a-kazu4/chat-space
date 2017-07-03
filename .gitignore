@@ -18,4 +18,5 @@
 
 # Ignore image
 /public/uploads
+/spec/fixtures/image
 
