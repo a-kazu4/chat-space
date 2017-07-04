@@ -40,8 +40,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'bullet'
-  gem 'rspec-rails', "~> 3.1.0"
-  gem 'factory_girl_rails', "~> 4.4.1"
 end
 
 group :development do
@@ -56,6 +54,8 @@ end
 
 group :test do
   gem 'faker'
+  gem 'rspec-rails', "~> 3.1.0"
+  gem 'factory_girl_rails', "~> 4.4.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
