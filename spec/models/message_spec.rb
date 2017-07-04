@@ -20,7 +20,7 @@ describe Message do
       expect(message).to be_valid
     end
 
-  # メッセージを保存できる場合
+  # メッセージを保存できない場合
     # メッセージも画像も無いと保存できない
     it 'is invalid without a body and an image' do
       message = build(:message, body: '', image: nil)
@@ -40,6 +40,14 @@ describe Message do
       message = build(:message, user_id: '')
       message.valid?
       expect(message.errors[:user_id]).to include('を入力してください。')
+    end
+
+    # 外部キー制約
+      # user_idと同じidを持つユーザーがいれば保存できる
+    it 'is valid with FOREIGN KEY constraint on user_id' do
+      message = build(:message, user_id: 2)
+      user = build(:user, id: 2)
+      expect(message.user_id).to eq(user.id)
     end
 
   end
