@@ -20,6 +20,20 @@ describe Message do
       expect(message).to be_valid
     end
 
+    # 外部キー制約
+      # user_idと同じidを持つユーザーがいれば保存できる
+    it 'is valid with FOREIGN KEY constraint on user_id' do
+      message = build(:message, user_id: 2)
+      user = build(:user, id: 2)
+      expect(message.user_id).to eq(user.id)
+    end
+      # group_idと同じidを持つユーザーがいれば保存できる
+    it 'is valid with FOREIGN KEY constraint on group_id' do
+      message = build(:message, group_id: 2)
+      group = build(:group, id: 2)
+      expect(message.group_id).to eq(group.id)
+    end
+
   # メッセージを保存できない場合
     # メッセージも画像も無いと保存できない
     it 'is invalid without a body and an image' do
@@ -43,12 +57,19 @@ describe Message do
     end
 
     # 外部キー制約
-      # user_idと同じidを持つユーザーがいれば保存できる
-    it 'is valid with FOREIGN KEY constraint on user_id' do
+      # user_idと同じidを持つユーザーがいないと保存できない
+    it 'is invalid with FOREIGN KEY constraint on user_id' do
       message = build(:message, user_id: 2)
-      user = build(:user, id: 2)
-      expect(message.user_id).to eq(user.id)
+      user = build(:user, id: 3)
+      message.valid?
+      expect(message.user_id).not_to eq(user.id)
     end
-
+      # group_idと同じidを持つユーザーがいないと保存できない
+    it 'is invalid with FOREIGN KEY constraint on group_id' do
+      message = build(:message, group_id: 2)
+      group = build(:user, id: 3)
+      message.valid?
+      expect(message.group_id).not_to eq(group.id)
+    end
   end
 end
