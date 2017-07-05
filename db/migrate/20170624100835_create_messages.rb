@@ -3,8 +3,8 @@ class CreateMessages < ActiveRecord::Migration[5.0]
     create_table :messages do |t|
       t.string     :body
       t.string     :image
-      t.references :group
-      t.references :user
+      t.references :group, foreign_key: true
+      t.references :user, foreign_key: true
       t.timestamps
     end
     add_index :messages, :body
