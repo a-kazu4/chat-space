@@ -23,14 +23,16 @@ describe Message do
     # 外部キー制約
       # user_idと同じidを持つユーザーがいれば保存できる
     it 'is valid with FOREIGN KEY constraint on user_id' do
-      message = build(:message, user_id: 2)
-      user = build(:user, id: 2)
+      num = Faker::Number.number(10)
+      message = build(:message, user_id: num)
+      user = build(:user, id: num)
       expect(message.user_id).to eq(user.id)
     end
       # group_idと同じidを持つユーザーがいれば保存できる
     it 'is valid with FOREIGN KEY constraint on group_id' do
-      message = build(:message, group_id: 2)
-      group = build(:group, id: 2)
+      num = Faker::Number.number(10)
+      message = build(:message, group_id: num)
+      group = build(:group, id: num)
       expect(message.group_id).to eq(group.id)
     end
 
