@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe Message do
   describe '#create' do
     let(:message) { Message.new(message_params) }
@@ -8,45 +9,45 @@ describe Message do
     let(:url) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image/image.jpg')) }
     let(:num) { Faker::Number.number(10) }
 
-    # メッセージを保存できる場合
     context 'if a message can be saved' do
       subject { message }
 
-      # メッセージと画像があれば保存できる
       context 'with a message and an image' do
         let(:body) { text }
         let(:image) { url }
         let(:user_id) { num }
         let(:group_id) { num }
-        it { is_expected.to be_valid }
+        it 'should be valid' do
+          is_expected.to be_valid
+        end
       end
 
-      # メッセージがあれば保存できる
       context 'with a body' do
         let(:body) { text }
         let(:image) { nil }
         let(:user_id) { num }
         let(:group_id) { num }
-        it { is_expected.to be_valid }
+        it 'should be valid' do
+          is_expected.to be_valid
+        end
       end
 
-      # 画像があれば保存できる
       context 'with a image' do
         let(:body) { '' }
         let(:image) { url }
         let(:user_id) { num }
         let(:group_id) { num }
-        it { is_expected.to be_valid }
+        it 'should be valid' do
+          is_expected.to be_valid
+        end
       end
 
-      # 外部キー制約
       context 'with FOREIGN KEY constraint' do
         let(:body) { text }
         let(:image) { url }
         let(:user_id) { num }
         let(:group_id) { num }
 
-        # user_idと同じidを持つユーザーがいれば保存できる
         context 'on user_id if there is User who has a same id' do
           it 'should be valid' do
             user = build(:user, id: num)
@@ -54,7 +55,6 @@ describe Message do
           end
         end
 
-        # group_idと同じidを持つユーザーがいれば保存できる
         context 'on group_id if there is Group who has a same id' do
           it 'should be valid' do
             group = build(:group, id: num)
@@ -64,10 +64,8 @@ describe Message do
       end
     end
 
-    # メッセージを保存できない場合
     context 'if a messsage cannot be saved' do
 
-    #   # メッセージも画像も無いと保存できない
       context 'without a body and an image' do
         let(:body) { '' }
         let(:image) { '' }
@@ -79,7 +77,6 @@ describe Message do
         end
       end
 
-    #   # user_idが無いと保存できない
       context 'without a user_id' do
         let(:body) { text }
         let(:image) { url }
@@ -91,7 +88,6 @@ describe Message do
         end
       end
 
-      # group_idが無いと保存できない
       context 'without a group_id' do
         let(:body) { text }
         let(:image) { url }
@@ -103,13 +99,11 @@ describe Message do
         end
       end
 
-      # 外部キー制約
       context 'with FOREIGN KEY constraint' do
         let(:body) { text }
         let(:image) { url }
         let(:user_id) { 2 }
         let(:group_id) { 2 }
-          # user_idと同じidを持つユーザーがいないと保存できない
         context 'on user_id unless there is User who has a same id' do
           it 'should be invalid' do
             user = build(:user, id: 3)
@@ -118,7 +112,6 @@ describe Message do
           end
         end
 
-          # group_idと同じidを持つユーザーがいないと保存できない
         context 'on group_id unless there is Group who has a same id' do
           it 'should be invalid' do
             group = build(:user, id: 3)
