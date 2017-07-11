@@ -8,7 +8,7 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :messages, :body
-    add_foreign_key :messages, :groups, column: :group_id
-    add_foreign_key :messages, :users, column: :user_id
+    add_foreign_key(:messages, :groups)
+    add_foreign_key(:messages, :users)
   end
 end
