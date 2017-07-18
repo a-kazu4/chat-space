@@ -252,7 +252,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-i18n
-  rake (< 11.0)
   rspec-rails (~> 3.1.0)
   sass-rails (~> 5.0)
   spring
