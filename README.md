@@ -2,11 +2,11 @@
 
 ## users table
 
-| Column     | Type        | Options                             |
-|:-----------|:------------|:------------------------------------|
-| name       | string      | null:false, unique:true, index:true |
-| email      | string      | null:false, unique:true             |
-| password   | string      | null:false, unique:true             |
+| Column     | Type        | Options                                   |
+|:-----------|:------------|:------------------------------------------|
+| name       | string      | null:false, unique:true, index:true       |
+| email      | string      | null:false, unique:true                   |
+| password   | string      | null:false, unique:true                   |
 
 ### Association
 * has_many :groups, through: members
@@ -16,9 +16,9 @@
 
 ## groups table
 
-| Column     | Type        | Options                             |
-|:-----------|:------------|:------------------------------------|
-| name       | string      | null:false, unique:true, index:true |
+| Column     | Type        | Options                                   |
+|:-----------|:------------|:------------------------------------------|
+| name       | string      | null:false, unique:true, index:true       |
 
 ### Association
 * has_many :users, through: members
@@ -28,12 +28,12 @@
 
 ## messages table
 
-| Column     | Type        | Options                             |
-|:-----------|:------------|:------------------------------------|
-| body       | string      | index:true                          |
-| image      | string      |                                     |
-| group_id   | references  | null:false, index:true              |
-| user_id    | references  | null:false, index:true              |
+| Column     | Type        | Options                                   |
+|:-----------|:------------|:------------------------------------------|
+| body       | string      | index:true                                |
+| image      | string      |                                           |
+| group_id   | references  | null:false, index:true, foreign_key: true |
+| user_id    | references  | null:false, index:true, foreign_key: true |
 
 ### Association
 * belongs_to :group
@@ -42,10 +42,10 @@
 
 ## members table
 
-| Column     | Type        | Options                             |
-|:-----------|:------------|:------------------------------------|
-| group_id   | references  | null:false, index:true              |
-| user_id    | references  | null:false, index:true              |
+| Column     | Type        | Options                                   |
+|:-----------|:------------|:------------------------------------------|
+| group_id   | references  | null:false, index:true, foreign_key: true |
+| user_id    | references  | null:false, index:true, foreign_key: true |
 
 ### Association
 * belongs_to :group

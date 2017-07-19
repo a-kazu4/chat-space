@@ -7,6 +7,8 @@ class Message < ApplicationRecord
   mount_uploader :image, MessageUploader
 
   validates :body_or_image, presence: true
+  validates :user_id, presence: true
+  validates :group_id, presence: true
 
   private
 
