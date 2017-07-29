@@ -6,4 +6,8 @@ FactoryGirl.define do
     group_id Faker::Number.number(1)
   end
 
+  factory :invalid_message, parent: :message do
+    body nil
+  end
+
 end
