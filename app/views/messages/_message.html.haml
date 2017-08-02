@@ -7,4 +7,5 @@
   .chat__body__chat__bottom
     .chat__body__chat__bottom__message
       = message.try(:body)
+      %br/
       = image_tag message.image.url(:thumb) if message.image?
