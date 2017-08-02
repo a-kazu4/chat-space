@@ -13,10 +13,10 @@
   .chat__body
     = render partial: 'messages/message', collection: @messages
   .chat__footer
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: { id: 'new_message_form' } do |f|
       .chat__footer__input
         = f.text_field :body, rows: '1', placeholder:'type a message', class: 'chat__footer__input__body'
         = f.label :image, class: 'chat__footer__input__image' do
           = f.file_field :image, class: 'file-upload'
           %i.fa.fa-image
-      = f.submit 'Send', class: 'chat__footer__send'
+      = f.submit 'Send', data: { disable_with: '送信中' }, class: 'chat__footer__send'
