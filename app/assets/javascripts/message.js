@@ -24,8 +24,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#new_message_form').on('submit', function(e){
     e.preventDefault();
-    var form = $('#new_message_form');
-    var formData = new FormData(form.get(0));
+    var formData = new FormData($('#new_message_form').get(0));
     $('.chat__footer__send').removeAttr('data-disable-with');
     $.ajax({
       url: location.href,
