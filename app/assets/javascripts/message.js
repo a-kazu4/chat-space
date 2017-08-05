@@ -36,12 +36,10 @@ $(document).on('turbolinks:load', function() {
       processData: false,
       contentType: false
     })
-
     .done(function(data) {
       buildHTML(data);
       $('.chat__footer__input__body').val('');
     })
-
     .fail(function(){
       alert('メッセージを送信できませんでした。');
     });
