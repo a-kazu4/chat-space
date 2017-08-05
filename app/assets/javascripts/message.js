@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function() {
     }
     html += closingTag;
     $('.chat__body').append(html);
-  };
+  }
 
   $('#new_message_form').on('submit', function(e){
     e.preventDefault();
@@ -42,6 +42,6 @@ $(document).on('turbolinks:load', function() {
     })
     .fail(function(){
       alert('メッセージを送信できませんでした。');
-    });
+    })
   });
 });
