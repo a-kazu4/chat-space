@@ -3,14 +3,14 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(message){
     var html = `<div class='chat__body__chat'>
                   <div class='chat__body__chat__top'>
-                    <div class='chat__body__chat__top__name'>${ message.name }</div>
-                    <div class='chat__body__chat__top__time'>${ message.time }</div>
+                    <div class='chat__body__chat__top__name'>${message.name}</div>
+                    <div class='chat__body__chat__top__time'>${message.time}</div>
                   </div>
                   <div class='chat__body__chat__bottom'>
                     <div class='chat__body__chat__bottom__message'>`;
-    var insertBody = `${ message.body }</div></div></div>`;
-    var insertImage = `<img src="${ message.image }"></div></div></div>`;
-    var insertBoth = `${ message.body } <br> <img src="${ message.image }"></div></div></div>`;
+    var insertBody = `${message.body}</div></div></div>`;
+    var insertImage = `<img src="${message.image}"></div></div></div>`;
+    var insertBoth = `${message.body} <br> <img src="${message.image}"></div></div></div>`;
 
     if ( message.image == undefined ) {
       html += insertBody;
