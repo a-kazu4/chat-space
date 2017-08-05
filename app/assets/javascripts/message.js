@@ -9,9 +9,9 @@ $(document).on('turbolinks:load', function() {
                   <div class='chat__body__chat__bottom'>
                     <div class='chat__body__chat__bottom__message'>`;
     var insertBody = `${message.body}`;
-    var insertImage = `<img src="${message.image}">`;
-    var insertBoth = `${message.body} <br> <img src="${message.image}">`;
-    var closingTag = `</div></div></div>`
+    var insertImage = `<img src='${message.image}', alt='${message.image}'>`;
+    var insertBoth = `${message.body} <br> <img src='${message.image}', alt='${message.image}'>`;
+    var closingTag = `</div></div></div>`;
 
     if ( message.image == undefined ) {
       html += insertBody;
