@@ -39,6 +39,7 @@ $(document).on('turbolinks:load', function() {
     .done(function(data) {
       buildHTML(data);
       $('.chat__footer__input__body').val('');
+      $('.file-upload').val('');
     })
     .fail(function(){
       alert('メッセージを送信できませんでした。');
