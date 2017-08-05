@@ -6,6 +6,6 @@
       = simple_time(message.created_at)
   .chat__body__chat__bottom
     .chat__body__chat__bottom__message
-      = message.try(:body)
-      %br
+      %p{ style: 'display:block;' }
+        = message.try(:body)
       = image_tag message.image.url(:thumb) if message.image?
