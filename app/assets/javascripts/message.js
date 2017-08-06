@@ -39,9 +39,12 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
+      var formClearForContinuousPost = function(){
+        $('.chat__footer__input__body').val('');
+        $('.file-upload').val('');
+      };
       buildHTML(data);
-      $('.chat__footer__input__body').val('');
-      $('.file-upload').val('');
+      formClearForContinuousPost();
     })
     .fail(function(){
       alert('メッセージを送信できませんでした。');
