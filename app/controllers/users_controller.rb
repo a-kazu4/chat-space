@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+  def search
+    keyword = "%#{params[:keyword]}%"
+    @users = User.where('name LIKE(?)', keyword).order('id ASC').limit(20)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def edit
   end
 
