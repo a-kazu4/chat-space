@@ -40,8 +40,15 @@ $(document).on('turbolinks:load', function() {
 
   $(document).on('click', '.chat-group-user__btn--add', function(e) {
     e.preventDefault();
-    var user = {name: $(this).attr('data-user-name'), id: $(this).attr('data-user-id')}
+    var user = {name: $(this).attr('data-user-name'), id: $(this).attr('data-user-id')};
     buildRemoveButton(user);
     $(this).parent("div").remove();
+  })
+
+  $(document).on('click', '.chat-group-user__btn--remove', function(e) {
+    e.preventDefault();
+    var user = {name: $(this).attr('data-user-name'), id: $(this).attr('data-user-id')};
+    buildAddButton(user);
+    $(this).parent('div').remove();
   })
 });
