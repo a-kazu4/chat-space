@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   resources :users, only: [:edit, :update] do
-    collection do
-      get 'search'
-    end
+    get 'search', on: :collection
   end
 end
