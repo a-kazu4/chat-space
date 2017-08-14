@@ -19,7 +19,12 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :user, 'チャットメンバー', class: 'chat-group-form__label'
-      .chat-group-form__field--right#registered
+      .chat-group-form__field--right
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+            = current_user.name
+          %input#get_current_user_id{ name: 'group[user_ids][]', value: current_user.id, type: 'hidden' }
+        #registered_user
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
