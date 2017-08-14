@@ -1,0 +1,6 @@
+- if current_user.id != user.id
+  .chat-group-user.clear-fix
+    %p.chat-group-user__name
+      = user.name
+    %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove 削除
+    %input#get_user_id{ name: 'group[user_ids][]', value: user.id, type: 'hidden'}
