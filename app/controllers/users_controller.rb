@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  def search
+    @users = User.where('name LIKE(?)', "%#{ search_params[:keyword] }%").order('name ASC').limit(20)
+    respond_to do |format|
+      format.json{ render json: @users }
+    end
+  end
+
   def edit
   end
 
@@ -16,6 +23,10 @@ class UsersController < ApplicationController
 
   def update_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def search_params
+    params.permit(:keyword)
   end
 
 end

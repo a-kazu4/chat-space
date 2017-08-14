@@ -56,9 +56,6 @@
       width: 70%;
     }
 
-    .check-boxes {
-      @include group-form-height();
-    }
     #group_name {
       @include group-form-height();
       width: 96%;
@@ -77,6 +74,11 @@
       float: left;
       width: 100%;
       box-sizing: border-box;
+  }
+
+  #user-search-field {
+    @include group-form-height();
+    padding-left: 20px;
   }
 
   .chat-group-user {

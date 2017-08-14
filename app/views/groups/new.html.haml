@@ -11,11 +11,20 @@
           = f.text_field :name, placeholder: 'グループ名を入力してください'
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        .chat-group-form__label
-          = f.label :member, 'チャットメンバー'
+        = f.label :add_user, 'チャットメンバーを追加', class: 'chat-group-form__label', for: 'chat_group_チャットメンバーを追加'
       .chat-group-form__field--right
-        .check-boxes
-          = f.collection_check_boxes(:user_ids, @users, :id, :name)
+        .chat-group-form__search.clearfix
+          %input.chat-group-form__input#user-search-field{ placeholder: '追加したいユーザー名を入力してください', type: 'text', name: 'keyword' }
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :user, 'チャットメンバー', class: 'chat-group-form__label'
+      .chat-group-form__field--right
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+            = current_user.name
+          %input#get_current_user_id{ name: 'group[user_ids][]', value: current_user.id, type: 'hidden' }
+        #registered_user
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
