@@ -2,7 +2,7 @@
 .chat
   .chat__header
     .chat__header__left
-      .chat__header__left__name
+      .chat__header__left__name#get_group_id{data_group_id: @group.id}
         = @group.name
       .chat__header__left__member
         Member :
