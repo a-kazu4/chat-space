@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
 
   def common_valiables
     @group = Group.find(params[:group_id])
-    @groups = Group.newest
+    @groups = Group.newest_order_by_messages_created_at
     @users = @group.users
     @messages = @group.messages.includes(:user)
   end

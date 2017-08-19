@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_action :set_users, only: [:new, :create, :edit, :update]
 
   def index
-    @groups = Group.newest
+    @groups = Group.newest_order_by_messages_created_at
   end
 
   def new

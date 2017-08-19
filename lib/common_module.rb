@@ -1,6 +1,6 @@
 module CommonModule
   extend ActiveSupport::Concern
   included do
-    scope :newest, -> { includes(:messages).order('updated_at DESC') }
+    scope :newest_order_by_messages_created_at, -> { includes(:messages).order('messages.updated_at DESC') }
   end
 end
