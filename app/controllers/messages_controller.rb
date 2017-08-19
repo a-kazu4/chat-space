@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -11,7 +15,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_url(@group) }
-        format.json
+        format.json { render :create, handlers: 'jbuilder' }
       end
     end
   end
